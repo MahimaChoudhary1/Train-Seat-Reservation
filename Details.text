@@ -1,0 +1,33 @@
+The logic for reserving seats in the train coach based on the given conditions can be explained as follows:
+
+1. Define the parameters:
+   - `totalSeats`: The total number of seats in the train coach.
+   - `seatsPerRow`: The number of seats in each row (except the last row).
+   - `lastRowSeats`: The number of seats in the last row.
+
+2. Initialize the necessary variables:
+   - `seatRows`: An array to store the seat numbers in each row.
+   - `reservedSeats`: An array to keep track of the reserved seats.
+
+3. Generate the seat rows:
+   - Iterate over the number of rows.
+   - For each row, calculate the number of seats based on whether it is the last row or not.
+   - Generate an array representing the seat numbers in that row.
+   - Add the array to the `seatRows` array.
+
+4. Reserve seats:
+   - Accept the number of seats to be reserved as input (`numSeats`).
+   - Check if the requested number of seats is valid (greater than 0 and not exceeding the total number of seats).
+   - Search for an available row with enough consecutive seats to accommodate the requested number of seats:
+     - Iterate over the rows and check the availability of seats in each row.
+     - If a row is found with enough available seats, reserve the seats in that row and break the loop.
+   - If no row is found with enough available seats, reserve the seats in a nearby row (non-consecutive):
+     - Iterate over the rows and check the availability of seats in each row.
+     - Reserve seats in rows with available seats until the requested number of seats is fulfilled.
+     - If the requested number of seats is not fulfilled even after checking all rows, notify that the seats are not available.
+   - Add the reserved seats to the `reservedSeats` array.
+
+5. Display the reserved seats:
+   - Output the reserved seat numbers to the console or display them on the user interface.
+
+This logic ensures that seats are first reserved in one row if enough seats are available, and if not, nearby seats are reserved in other rows.

@@ -1,0 +1,28 @@
+
+  <!-- ------------------------------------ HEADER ------------------------------------ -->
+   <div class="container">
+    <div>
+    <h2>SEAT RESERVATION</h2>
+    <label for="numSeats"><b>Number of Seats to Reserve: </b> </label>
+    <input type="number" id="numSeats" [(ngModel)]="numSeats">
+    <button  type="button" class="btn btn-primary" (click)="reserveSeats(numSeats)">Reserve</button>
+  </div>
+ 
+  <!-- ------------------------------------ Seat in a form of row  ------------------------------------ -->
+ 
+    <div class="seat-row" *ngFor="let row of seatRows">
+      <div class="seat" *ngFor="let seat of row">
+        <div [ngClass]="{'seat-available': isSeatAvailable(seat), 'seat-reserved': !isSeatAvailable(seat)}">
+          {{ seat }}
+        </div>
+      </div>
+    </div>
+  <!-- ------------------------------------Output of ReservedSeats ------------------------------------ -->
+  
+  <div *ngIf="reservedSeats.length > 0">
+  <b>Reserved Seats: </b>
+        {{ reservedSeats.join(', ') }}
+        
+  </div>
+</div>
+  
